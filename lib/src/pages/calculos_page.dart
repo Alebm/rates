@@ -52,9 +52,6 @@ class Calculos extends StatefulWidget {
       });
     }
 
-
-
-
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
