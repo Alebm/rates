@@ -50,7 +50,6 @@ initDB() async{
 nuevoPrest( PrestModel nuevoPrest) async {
 
   final db = await database;
-
   final res = await db.insert('Prest', nuevoPrest.toJson());
   return res;
 
@@ -70,7 +69,9 @@ nuevoPrest( PrestModel nuevoPrest) async {
     final db  = await database;
     final res = await db.query('Prest');
 
-    List<PrestModel> list = res.isNotEmpty ? res.map((c)=>PrestModel.fromJson(c)).toList():[];
+    List<PrestModel> list = res.isNotEmpty 
+                                    ? res.map((c)=>PrestModel.fromJson(c)).toList()
+                                    :[];
     return list;
 
   }
@@ -92,7 +93,7 @@ nuevoPrest( PrestModel nuevoPrest) async {
     return res;
   }
   //Eliminar todo 
-    Future<int> deleteAll(int id) async{
+    Future<int> deleteAll() async{
 
     final db  = await database;
     final res = await db.rawDelete('DELETE FROM Prest');

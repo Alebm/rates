@@ -10,12 +10,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  int currentIndex = 0;
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: callpage(currentIndex),
+        body: callpage(_currentIndex),
         bottomNavigationBar: _bottomNavigation(context),   
 
         );
@@ -37,10 +37,10 @@ class _HomePageState extends State<HomePage> {
   Widget _bottomNavigation(BuildContext context){
 
       return BottomNavigationBar(
-        currentIndex: currentIndex,
+        currentIndex: _currentIndex,
         onTap: (int index){
           setState(() {
-            currentIndex = index;
+            _currentIndex = index;
           });
         },
 

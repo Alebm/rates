@@ -2,7 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:rates/src/providers/db_provider.dart';
+
+import 'package:rates/src/bloc/Prests_bloc.dart';
+import 'package:rates/src/models/prest_model.dart';
 
 
 class Calculos extends StatefulWidget {
@@ -12,6 +14,8 @@ class Calculos extends StatefulWidget {
 }
 
   class CalculosPage extends State<Calculos>{  
+
+    final prestsBloc = PrestsBloc();
 
     // String _prestamo='',_tasa='',_plazo='',_opcionSeleccionada='Mensual Vencida';
     final List<String> _dtasas = ['Efectiva Anual','Anual Anticipada','Bimestral Vencida','Bimestral Anticipada','Trimestral Vencida','Trimestral Anticipada','Semestral Vencida','Semestral Anticipada'];
@@ -320,7 +324,7 @@ List<DropdownMenuItem<String>> getOpcionesDropDown(){
 
     if(nomPrest != null ){
       final prest = PrestModel(valor: nomPrest);
-      DBProvider.db.nuevoPrest(prest);
+      prestsBloc.agregarPrests(prest);
 
     }
 
