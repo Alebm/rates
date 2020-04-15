@@ -19,7 +19,7 @@ class Calculos extends StatefulWidget {
 
     // String _prestamo='',_tasa='',_plazo='',_opcionSeleccionada='Mensual Vencida';
     final List<String> _dtasas = ['Efectiva Anual','Anual Anticipada','Bimestral Vencida','Bimestral Anticipada','Trimestral Vencida','Trimestral Anticipada','Semestral Vencida','Semestral Anticipada'];
-    String nomPrest, _opcionSeleccionada='Efectiva Anual';
+    String nomPrest, _opcionSeleccionada='Efectiva Anual', prueba = 'prueba';
     double _cuota=0,_prestamo=0,_tasa=0,_plazo=0,_mv=0,_av,_vfinal=0,_vintereses=0;
     TextEditingController prestamo = TextEditingController();
     TextEditingController tasa = TextEditingController();
@@ -319,14 +319,14 @@ List<DropdownMenuItem<String>> getOpcionesDropDown(){
   );
  }
 
-  _guardarPrest(BuildContext context) {
+  _guardarPrest(BuildContext context) async {
     print('nomPrest: $nomPrest');
 
     if(nomPrest != null ){
-      final prest = PrestModel(valor: nomPrest);
+      final prest = PrestModel(tipo: nomPrest, valor: '$_prestamo');
       prestsBloc.agregarPrests(prest);
 
     }
-
+    
   }
 }

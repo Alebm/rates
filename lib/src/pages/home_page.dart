@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:rates/src/pages/calculos_page.dart';
 import 'package:rates/src/pages/lista_page.dart';
-import 'package:rates/src/pages/prestamos_page.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+
 
   int _currentIndex = 0;
 
@@ -27,7 +30,7 @@ class _HomePageState extends State<HomePage> {
 
       case 0: return Calculos();
       case 1: return ListaPage();
-      case 2: return Prestamos();
+      // case 2: return Prestamos();
       default: return Calculos();
 
     }

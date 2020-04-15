@@ -28,9 +28,9 @@ class PrestsBloc{
     _prestContoller.sink.add( await DBProvider.db.getTodosPrest() );
   }
 
-  agregarPrests(PrestModel nuevoPrest) async{
-    await DBProvider.db.nuevoPrest(nuevoPrest);
-    // obtenerPrests();
+  agregarPrests(PrestModel prest) async{
+    await DBProvider.db.nuevoPrest(prest);
+    obtenerPrests();
   }
 
   borrarPrest(int id) async{

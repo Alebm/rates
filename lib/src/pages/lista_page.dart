@@ -13,8 +13,12 @@ class _ListaPageState extends State<ListaPage> {
 
   final prestBloc = new PrestsBloc();
 
+
   @override
   Widget build(BuildContext context) {
+
+    prestBloc.obtenerPrests();
+
     return Scaffold(
       body: StreamBuilder<List<PrestModel>>(
         stream: prestBloc.prestsStream,
@@ -41,8 +45,11 @@ class _ListaPageState extends State<ListaPage> {
               onDismissed: (direction)=> prestBloc.borrarPrest(prests[i].id),
               child:  ListTile(
               leading: Icon(Icons.monetization_on, color: Theme.of(context).primaryColor),
-              title: Text(prests[i].valor),
+              title: Text(prests[i].tipo),
+              subtitle: Text(prests[i].valor),
               trailing: Icon(Icons.arrow_right),
+              onTap: () => Navigator.pushNamed(context, 'prestamos'),
+              
                )
               )
             );
@@ -53,9 +60,9 @@ class _ListaPageState extends State<ListaPage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.delete_forever), 
-            onPressed: (){
-              prestBloc.borrarPrestsTODOS();
-            }),
+            onPressed: prestBloc.borrarPrestsTODOS,
+              
+            ),
         ],
       ),
 
